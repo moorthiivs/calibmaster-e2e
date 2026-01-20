@@ -3,6 +3,8 @@ import { LoginPage } from '../pages/LoginPage';
 import { InstrumentVariantFormPage } from '../pages/InstrumentVarientFormPage';
 import testData from '../testdata/TC_INST_02.json';
 import config from '../Login_config.json';
+import { ensureDirectoryExists, getScreenshotPath } from 'utils/fileUtils';
+import { screenshotCard } from 'utils/testutils';
 
 test.describe('TC_INST_02: Create Instrument Variant', () => {
 
@@ -17,15 +19,15 @@ test.describe('TC_INST_02: Create Instrument Variant', () => {
 
             // 2. Navigate to Create Variant
             await variantPage.navigateToCreate();
+            const fullname = await variantPage.genfullname(data)
+            await ensureDirectoryExists(fullname)
 
-            // 3. Fill Variant Details
-            await variantPage.fillInstrumentVariantDetails(data);
-
-            // 4. Save (Implementation of save method might be needed in POM)
-            await page.getByRole('button', { name: /Add Instrument Variant/i, exact: true }).click();
+            await variantPage.fillInstrumentBasicDetails(data)
+            const card = page.locator('#Instrument_Basic_Details').first();
+            await screenshotCard(card, { folderName: fullname, fileName: 'basic_instrument_details' })
 
             // 5. Verify Success
-            await expect(page.getByText(/The Instrument Variant was created successfully/i)).toBeVisible();
+            await variantPage.saveAndVerify();
         });
     }
 });
