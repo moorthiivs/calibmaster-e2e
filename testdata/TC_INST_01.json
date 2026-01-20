@@ -1,0 +1,34 @@
+[
+    {
+        "InstrumentName": "Snap Gauge",
+        "Discipline": "MECHANICAL DIMENSION",
+        "UOM": "Milimeter",
+        "Group": "BASIC INSTRUMENT & GAUGE",
+        "LabTypes": [
+            {
+                "Type": "NABL",
+                "RangeMin": 3,
+                "RangeMax": 100,
+                "RangeUnit": "mm",
+                "DecimalPlace": 3
+            },
+            {
+                "Type": "NON-NABL",
+                "RangeMin": 100,
+                "RangeMax": 150,
+                "RangeUnit": "mm",
+                "DecimalPlace": 3
+            }
+        ],
+        "Parameters": [
+            {
+                "ParamName": "GO",
+                "UOM": "mm"
+            },
+            {
+                "ParamName": "NO GO",
+                "UOM": "mm"
+            }
+        ]
+    }
+]
