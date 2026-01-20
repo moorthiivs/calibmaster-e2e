@@ -1,0 +1,17 @@
+[
+    {
+        "InstrumentName": "Snap Gauge",
+        "InstrumentVariantName": "Attribute",
+        "LabType": "NABL",
+        "parameters": [
+            {
+                "ParameterValue": "1",
+                "uom_id": "mm"
+            },
+            {
+                "ParameterValue": "2",
+                "uom_id": "mm"
+            }
+        ]
+    }
+]
